@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Card, CardSection, Input } from './common'
 
 class LoginForm extends Component {
-  state = { email: ''};
+  state = { email: '', password: ''};
 
   render () {
     return (
@@ -13,11 +13,18 @@ class LoginForm extends Component {
             label="Email"
             placeholder="user@gmail.com"
             value={this.state.email}
-            onChangeText={text => this.setState({ email: text })}
+            onChangeText={email => this.setState({ email })}
           />
         </CardSection>
 
         <CardSection>
+          <Input 
+            label="Password"
+            placeholder="password"
+            secureTextEntry //just be listing it, it'll be passed down as "true" (cuz it's a boolean)
+            value={this.state.password}
+            onChangeText={password => this.setState({ password })}
+          />
         </CardSection>
 
 
