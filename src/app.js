@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { Header } from './components/common'; //it will automatically search for "index" file, so you don't need to specify it ;)
+import { View } from 'react-native';
+import firebase from 'firebase';
+import { Header } from './components/common'; 
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
+
+  componentWillMount() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyDiZCXcSqrghynqgXv_qOD8VTiqg1PIP7Y',
+      authDomain: 'auth-efae1.firebaseapp.com',
+      databaseURL: 'https://auth-efae1.firebaseio.com',
+      storageBucket: 'auth-efae1.appspot.com',
+      messagingSenderId: '199487556539'
+    });
+  }
+
   render(){
     return (
       <View>
-        <Text>An app!</Text>
+        <Header headerText="Authentication" />
+        <LoginForm />
       </View>
     );
   }
